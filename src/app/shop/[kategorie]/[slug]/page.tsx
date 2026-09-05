@@ -42,7 +42,7 @@ export default async function ProduktPage({ params }: PageProps<"/shop/[kategori
   const catMeta = kategorieMeta[product.kategorie];
 
   const accordion: AccordionItem[] = [
-    { title: "Beschreibung", content: <div className="prose-velora">{renderMarkdown(product.beschreibung)}</div> },
+    { title: "Beschreibung", content: <div className="prose-padora">{renderMarkdown(product.beschreibung)}</div> },
   ];
   const details: Array<[string, string | undefined]> = [
     ["Material", product.details.material],

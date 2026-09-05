@@ -4,11 +4,11 @@
   "name": "Gitter-Basis",
   "kategorie": "halterungen",
   "preisChf": 24.9,
-  "beschreibung": "Die Gitter-Basis ist das Fundament des modularen Velora-Halterungssystems. Sie wird an Zaun, Netzpfosten oder Geländer befestigt und nimmt anschliessend beliebige Velora-Aufsätze auf – von der PadelCam-Halterung bis zur Racket-Wandhalterung.\n\nGedruckt aus robustem PETG, ist die Basis witterungsbeständig und für den Dauereinsatz auf dem Platz ausgelegt. Das Gittermuster sorgt für ein geringes Gewicht bei hoher Stabilität.\n\nEinmal montiert, lassen sich Aufsätze werkzeuglos wechseln – ideal, um Kamera und Racket-Halter je nach Trainingssituation flexibel zu kombinieren.",
+  "beschreibung": "Die Gitter-Basis ist das Fundament des modularen Padora-Halterungssystems. Sie wird an Zaun, Netzpfosten oder Geländer befestigt und nimmt anschliessend beliebige Padora-Aufsätze auf – von der PadelCam-Halterung bis zur Racket-Wandhalterung.\n\nGedruckt aus robustem PETG, ist die Basis witterungsbeständig und für den Dauereinsatz auf dem Platz ausgelegt. Das Gittermuster sorgt für ein geringes Gewicht bei hoher Stabilität.\n\nEinmal montiert, lassen sich Aufsätze werkzeuglos wechseln – ideal, um Kamera und Racket-Halter je nach Trainingssituation flexibel zu kombinieren.",
   "details": {
     "material": "PETG, 3D-gedruckt",
     "masse": "14 x 14 x 2 cm",
-    "kompatibilitaet": "Alle Velora-Aufsätze"
+    "kompatibilitaet": "Alle Padora-Aufsätze"
   },
   "varianten": {
     "typ": "farbe",

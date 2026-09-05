@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "velora-shop",
+  "name": "padora-shop",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-08-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -14,14 +14,14 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "velora-shop",
-      // TODO(operator): replace with the real ID from `wrangler d1 create velora-shop`
+      "database_name": "padora-shop",
+      // TODO(operator): replace with the real ID from `wrangler d1 create padora-shop`
       "database_id": "00000000-0000-0000-0000-000000000000",
       "migrations_dir": "migrations"
     }
   ],
   "vars": {
-    "SITE_URL": "https://velorapadel.ch"
+    "SITE_URL": "https://padora.ch"
   }
   // Secrets (never commit): PAYREXX_INSTANCE, PAYREXX_API_KEY, RESEND_API_KEY
   // -> local: .dev.vars ; production: `wrangler secret put <NAME>`

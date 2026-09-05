@@ -10,8 +10,8 @@ type LogoProps = { className?: string };
  */
 export function Logo({ className }: LogoProps) {
   return (
-    <Link href="/" aria-label="Velora – zur Startseite" className={cn("wordmark inline-flex items-center", className)}>
-      VELORA
+    <Link href="/" aria-label="Padora – zur Startseite" className={cn("wordmark inline-flex items-center", className)}>
+      PADORA
     </Link>
   );
 }

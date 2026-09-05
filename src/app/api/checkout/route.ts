@@ -64,7 +64,7 @@ export async function POST(req: Request) {
     const gateway = await createGateway(cfg, {
       amountChf: order.total_chf,
       referenceId: order.id,
-      purpose: `Velora Bestellung ${order.id} (${paymentMethodLabel[input.paymentMethod]})`,
+      purpose: `Padora Bestellung ${order.id} (${paymentMethodLabel[input.paymentMethod]})`,
       paymentMethod: input.paymentMethod,
       successUrl: `${thanks}&result=success`,
       failedUrl: `${thanks}&result=failed`,

@@ -1,11 +1,11 @@
 /** Static site-wide configuration (no secrets here). */
 export const site = {
-  name: "Velora",
+  name: "Padora",
   tagline: "Padel-Zubehör aus der Schweiz",
-  domain: "velorapadel.ch",
-  url: "https://velorapadel.ch",
-  instagramUrl: "https://www.instagram.com/velorapadel",
-  contactEmail: "hallo@velorapadel.ch",
+  domain: "padora.ch",
+  url: "https://padora.ch",
+  instagramUrl: "https://www.instagram.com/padora",
+  contactEmail: "hallo@padora.ch",
 } as const;
 
 export const navigation = {

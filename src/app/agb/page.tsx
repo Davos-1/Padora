@@ -4,7 +4,7 @@ import { ContentPage } from "@/components/layout/ContentPage";
 
 export const metadata: Metadata = {
   title: "AGB",
-  description: "Allgemeine Geschäftsbedingungen von Velora.",
+  description: "Allgemeine Geschäftsbedingungen von Padora.",
   robots: { index: false },
 };
 

@@ -1,4 +1,4 @@
-# Velora Shop
+# Padora Shop
 
 Onlineshop für Padel-Zubehör, Zielmarkt Schweiz. Next.js auf
 Cloudflare Pages, Payrexx (TWINT/Karte/QR-Rechnung), Resend, D1.

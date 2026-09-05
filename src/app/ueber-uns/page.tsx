@@ -5,25 +5,25 @@ import { ContentPage } from "@/components/layout/ContentPage";
 export const metadata: Metadata = {
   title: "Über uns",
   description:
-    "Velora ist eine kleine Schweizer Padel-Marke: eigene 3D-gedruckte Halterungssysteme und sorgfältig ausgewähltes Zubehör.",
+    "Padora ist eine kleine Schweizer Padel-Marke: eigene 3D-gedruckte Halterungssysteme und sorgfältig ausgewähltes Zubehör.",
 };
 
 export default function UeberUnsPage() {
   return (
     <ContentPage
       title="Über uns"
-      lead="Velora ist eine kleine Schweizer Marke für Padel-Zubehör – entstanden aus der eigenen Leidenschaft für den Sport."
+      lead="Padora ist eine kleine Schweizer Marke für Padel-Zubehör – entstanden aus der eigenen Leidenschaft für den Sport."
     >
       <h2>Wie alles begonnen hat</h2>
       <p>
-        Velora ist aus einer ganz konkreten Frage entstanden: Wie befestigt man eine Kamera oder
+        Padora ist aus einer ganz konkreten Frage entstanden: Wie befestigt man eine Kamera oder
         einen Schläger sauber und sicher an den Zaun eines Padel-Courts? Weil es dafür keine
         überzeugende Lösung gab, haben wir angefangen, eigene Halterungen zu entwickeln – und
-        daraus ist Velora geworden.
+        daraus ist Padora geworden.
       </p>
       <h2>Unser eigenes Gitter-System</h2>
       <p>
-        Das Herzstück von Velora ist ein modulares Gitter-System, das wir selbst entwerfen und in
+        Das Herzstück von Padora ist ein modulares Gitter-System, das wir selbst entwerfen und in
         der Schweiz 3D-drucken lassen. Es besteht aus einer stabilen Gitter-Basis, die sich am
         Court-Zaun befestigen lässt, sowie zwei Aufsätzen: dem PadelCam Mount für Actioncams und
         Smartphones sowie der Racket-Wandhalterung für Schläger. Alle Teile sind aufeinander

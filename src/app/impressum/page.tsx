@@ -4,7 +4,7 @@ import { ContentPage } from "@/components/layout/ContentPage";
 
 export const metadata: Metadata = {
   title: "Impressum",
-  description: "Impressum von Velora.",
+  description: "Impressum von Padora.",
   robots: { index: false },
 };
 

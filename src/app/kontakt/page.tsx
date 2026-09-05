@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Kontakt",
-  description: "So erreichst du Velora per E-Mail oder Instagram.",
+  description: "So erreichst du Padora per E-Mail oder Instagram.",
 };
 
 export default function KontaktPage() {

@@ -31,7 +31,7 @@ export function rowToOrder(row: OrderRow): Order {
   return { ...rest, address: JSON.parse(address_json) as Address, items: JSON.parse(items_json) as OrderItem[] };
 }
 
-/** Next order id like VLR-2026-0001 – atomic per year via the counter table. */
+/** Next order id like PDR-2026-0001 – atomic per year via the counter table. */
 export async function nextOrderId(db: D1Database): Promise<string> {
   const year = new Date().getFullYear();
   const row = await db
@@ -43,7 +43,7 @@ export async function nextOrderId(db: D1Database): Promise<string> {
     .bind(year)
     .first<{ last_seq: number }>();
   if (!row) throw new Error("Could not allocate order number");
-  return `VLR-${year}-${String(row.last_seq).padStart(4, "0")}`;
+  return `PDR-${year}-${String(row.last_seq).padStart(4, "0")}`;
 }
 
 /** Items that require a stock check (imported goods; prints are on demand). */
