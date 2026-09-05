@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     template: `%s – ${site.name}`,
   },
   description:
-    "Velora: modulare 3D-gedruckte Halterungen und ausgewählte Padel-Produkte. Versand in der Schweiz, Zahlung mit TWINT, Karte oder Rechnung.",
+    "Padora: modulare 3D-gedruckte Halterungen und ausgewählte Padel-Produkte. Versand in der Schweiz, Zahlung mit TWINT, Karte oder Rechnung.",
   openGraph: {
     type: "website",
     locale: "de_CH",

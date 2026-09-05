@@ -27,7 +27,7 @@ export default function HomePage() {
             <p className="text-sm font-medium text-brand-dark">Modulares Gittersystem</p>
             <h1 className="mt-3">Eine Basis. Jeder Aufsatz. Kamera und Racket immer am richtigen Ort.</h1>
             <p className="mt-4 max-w-prose text-neutral">
-              Die Velora Gitter-Basis hält am Zaun oder an der Wand. Darauf rastet der PadelCam Mount
+              Die Padora Gitter-Basis hält am Zaun oder an der Wand. Darauf rastet der PadelCam Mount
               für deine Action-Cam oder die Racket-Wandhalterung ein. 3D-gedruckt in der Schweiz.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">

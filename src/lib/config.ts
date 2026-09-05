@@ -9,7 +9,7 @@ export const shopConfig = {
   /** Print-on-demand: allow ordering 3D-printed items without stock check. */
   printOnDemand: true,
   /** Operator notification address for order copies. TODO(operator): confirm. */
-  operatorEmail: "bestellungen@velorapadel.ch",
+  operatorEmail: "bestellungen@padora.ch",
   /** Sender used by Resend. TODO(operator): verify domain in Resend. */
-  mailFrom: "Velora <shop@velorapadel.ch>",
+  mailFrom: "Padora <shop@padora.ch>",
 } as const;

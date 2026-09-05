@@ -10,7 +10,7 @@ export function Footer() {
     <footer className="mt-auto bg-ink text-paper">
       <Container className="grid gap-10 py-12 md:grid-cols-4">
         <div className="md:col-span-2">
-          <p className="wordmark text-base">VELORA</p>
+          <p className="wordmark text-base">PADORA</p>
           <p className="mt-3 max-w-sm text-sm text-neutral">
             {site.tagline}. Eigenentwickelte Halterungen und ausgewählte Padel-Produkte.
             Versand nur innerhalb der Schweiz.

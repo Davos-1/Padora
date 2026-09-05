@@ -5,7 +5,7 @@ import { shopConfig } from "@/lib/config";
 
 export const metadata: Metadata = {
   title: "Versand & Rückgabe",
-  description: "Informationen zu Versand, Lieferzeiten, Rückgabe und Zahlungsmethoden bei Velora.",
+  description: "Informationen zu Versand, Lieferzeiten, Rückgabe und Zahlungsmethoden bei Padora.",
 };
 
 export default function VersandPage() {

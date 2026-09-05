@@ -19,7 +19,7 @@ export type CartLine = {
 
 export type CartState = { lines: CartLine[] };
 
-export const CART_STORAGE_KEY = "velora.cart.v1";
+export const CART_STORAGE_KEY = "padora.cart.v1";
 export const MAX_QTY = 20;
 
 export const emptyCart: CartState = { lines: [] };

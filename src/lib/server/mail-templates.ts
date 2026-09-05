@@ -18,7 +18,7 @@ function layout(title: string, body: string): string {
 <body style="margin:0;padding:0;background:${C.paper};font-family:${font};color:${C.ink};">
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:${C.paper};"><tr><td align="center" style="padding:24px 12px;">
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;">
-<tr><td style="padding:8px 0 20px;font-size:14px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:${C.ink};">VELORA</td></tr>
+<tr><td style="padding:8px 0 20px;font-size:14px;font-weight:500;letter-spacing:0.3em;text-transform:uppercase;color:${C.ink};">PADORA</td></tr>
 <tr><td style="background:${C.surface};border:1px solid ${C.line};border-radius:12px;padding:28px 24px;">${body}</td></tr>
 <tr><td style="padding:20px 4px 0;font-size:12px;line-height:1.5;color:${C.neutral};">
 ${esc(site.name)} · ${esc(site.domain)} · <a href="mailto:${esc(site.contactEmail)}" style="color:${C.brandDark};">${esc(site.contactEmail)}</a><br>Alle Preise in CHF inkl. MwSt. Versand nur innerhalb der Schweiz.</td></tr>

@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS inventory (
 );
 
 CREATE TABLE IF NOT EXISTS orders (
-  id TEXT PRIMARY KEY,                   -- VLR-2026-0001
+  id TEXT PRIMARY KEY,                   -- PDR-2026-0001
   created_at TEXT NOT NULL,
   updated_at TEXT NOT NULL,
   status TEXT NOT NULL CHECK (status IN ('pending', 'paid', 'failed', 'shipped')),

@@ -8,7 +8,7 @@ import { KATEGORIEN } from "@/types/product";
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: "Alle Velora-Produkte: Halterungen, Rackets, Taschen, Bälle, Grips und Schutz.",
+  description: "Alle Padora-Produkte: Halterungen, Rackets, Taschen, Bälle, Grips und Schutz.",
 };
 
 export default function ShopPage() {

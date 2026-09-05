@@ -4,7 +4,7 @@ import { ContentPage } from "@/components/layout/ContentPage";
 
 export const metadata: Metadata = {
   title: "Datenschutz",
-  description: "Datenschutzerklärung von Velora.",
+  description: "Datenschutzerklärung von Padora.",
   robots: { index: false },
 };
 
