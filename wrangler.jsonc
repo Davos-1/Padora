@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "padora-shop",
+  "name": "padora",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-08-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
@@ -15,8 +15,7 @@
     {
       "binding": "DB",
       "database_name": "padora-shop",
-      // TODO(operator): replace with the real ID from `wrangler d1 create padora-shop`
-      "database_id": "00000000-0000-0000-0000-000000000000",
+      "database_id": "353cdc54-4139-42e9-93fc-9f5f6f46788e",
       "migrations_dir": "migrations"
     }
   ],

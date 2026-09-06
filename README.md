@@ -23,6 +23,22 @@ wrangler d1 migrations apply padora-shop --remote
 
 Siehe `CLAUDE.md` für Architektur- und Design-Regeln.
 
+## Deploy via Cloudflare Workers Builds (Git-Integration)
+
+Im Dashboard unter *Workers & Pages → padora → Settings → Build*:
+
+| Einstellung | Wert |
+|---|---|
+| Production branch | `main` |
+| Build command | `pnpm exec opennextjs-cloudflare build` |
+| Deploy command | `npx wrangler deploy` (delegiert an `opennextjs-cloudflare deploy`) |
+| Root directory | `/` |
+
+Der Worker-Name in `wrangler.jsonc` (`padora`) muss mit dem Worker im Dashboard
+übereinstimmen. Ohne gültige D1-`database_id` und ohne die Secrets schlägt der
+Deploy fehl und der Worker zeigt weiterhin den «Hello World»-Platzhalter.
+Build-Logs: *Worker → Deployments / Builds*.
+
 ## Go-live-Checkliste
 
 1. `wrangler d1 create padora-shop` → `database_id` in `wrangler.jsonc` eintragen
