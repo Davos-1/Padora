@@ -90,6 +90,12 @@
   .prose-padora p + p {
     margin-top: 1em;
   }
+
+  /* Backdrop for the product 3D viewer: gives light models a silhouette
+     without resorting to a shadow. */
+  .model-stage {
+    background: radial-gradient(circle at 50% 42%, var(--color-surface), var(--color-line));
+  }
 }
 
 /* Long-form content (about, shipping, legal pages) */

@@ -7,6 +7,7 @@ import { LieferzeitBadge } from "@/components/ui/LieferzeitBadge";
 import { ProductGrid } from "@/components/shop/ProductGrid";
 import { Gallery } from "@/components/product/Gallery";
 import { ProductPurchase } from "@/components/product/ProductPurchase";
+import { VariantProvider } from "@/components/product/VariantProvider";
 import { getActiveProducts, getCrossSell, getProductBySku, getProductBySlug } from "@/lib/products";
 import { renderMarkdown } from "@/lib/markdown";
 import { bundlePrice } from "@/lib/pricing";
@@ -102,25 +103,29 @@ export default async function ProduktPage({ params }: PageProps<"/shop/[kategori
         ]}
       />
 
-      <div className="mt-4 grid gap-8 lg:grid-cols-2 lg:gap-12">
-        <Gallery images={product.bilder} alt={product.name} />
+      {/* Gallery and purchase island share the selected variant, so choosing a
+          colour also recolours the 3D model. */}
+      <VariantProvider options={product.varianten.optionen}>
+        <div className="mt-4 grid gap-8 lg:grid-cols-2 lg:gap-12">
+          <Gallery images={product.bilder} alt={product.name} model={product.modell3d} />
 
-        <div className="flex flex-col gap-5">
-          <div>
-            <p className="text-sm text-brand-dark">{catMeta.label}</p>
-            <h1 className="mt-1">{product.name}</h1>
-            <div className="mt-3 flex flex-wrap items-center gap-3">
-              <p className="text-lg font-medium text-ink">{formatChf(product.preisChf)}</p>
-              <LieferzeitBadge text={product.lieferzeitText} />
+          <div className="flex flex-col gap-5">
+            <div>
+              <p className="text-sm text-brand-dark">{catMeta.label}</p>
+              <h1 className="mt-1">{product.name}</h1>
+              <div className="mt-3 flex flex-wrap items-center gap-3">
+                <p className="text-lg font-medium text-ink">{formatChf(product.preisChf)}</p>
+                <LieferzeitBadge text={product.lieferzeitText} />
+              </div>
+              <p className="text-xs text-neutral">inkl. MwSt., zzgl. Versand</p>
             </div>
-            <p className="text-xs text-neutral">inkl. MwSt., zzgl. Versand</p>
+
+            <ProductPurchase product={product} bundle={bundle} />
+
+            <Accordion items={accordion} />
           </div>
-
-          <ProductPurchase product={product} bundle={bundle} />
-
-          <Accordion items={accordion} />
         </div>
-      </div>
+      </VariantProvider>
 
       {crossSell.length > 0 && (
         <section className="mt-16">
