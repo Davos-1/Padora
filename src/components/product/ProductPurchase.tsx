@@ -6,6 +6,7 @@ import { useCart } from "@/components/cart/CartProvider";
 import type { Product } from "@/types/product";
 import { formatChf } from "@/lib/format";
 import { Button } from "@/components/ui/Button";
+import { useVariant } from "./VariantProvider";
 import { ColorSwatches } from "./ColorSwatches";
 import { SizeSelect } from "./SizeSelect";
 import { BundleBox } from "./BundleBox";
@@ -21,7 +22,9 @@ type Props = {
  */
 export function ProductPurchase({ product, bundle }: Props) {
   const { typ, optionen } = product.varianten;
-  const [variant, setVariant] = useState<string>(optionen[0]?.code ?? "");
+  // The selection lives in the provider, shared with the gallery so the 3D
+  // model follows the colour choice; the options stay owned by the product.
+  const { code: variant, setCode: setVariant } = useVariant();
   const [withBundle, setWithBundle] = useState(false);
   const [added, setAdded] = useState(false);
   const cart = useCart();

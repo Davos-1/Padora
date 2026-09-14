@@ -10,6 +10,7 @@
     "lint": "eslint",
     "typecheck": "next typegen && tsc --noEmit",
     "validate:products": "tsx scripts/validate-products.ts",
+    "build:mesh": "tsx scripts/stl-to-mesh.ts",
     "check": "pnpm lint && pnpm typecheck && pnpm validate:products",
     "cf:build": "opennextjs-cloudflare build && opennextjs-cloudflare populateCache local",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",

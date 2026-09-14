@@ -52,6 +52,11 @@ export const productSchema = z
     quelle: z.enum(["print", "import"]),
     lieferzeitText: z.string().min(1),
     bilder: z.array(z.string().startsWith("/images/products/")).min(1),
+    /** Optional 3D mesh, built from assets/models via `pnpm build:mesh`. */
+    modell3d: z
+      .string()
+      .regex(/^\/models\/[a-z0-9-]+\.pdm$/, "modell3d must look like /models/<slug>.pdm")
+      .optional(),
     aktiv: z.boolean(),
   })
   .superRefine((p, ctx) => {

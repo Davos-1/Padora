@@ -22,5 +22,6 @@
   "quelle": "print",
   "lieferzeitText": "Fertigung 2–4 Tage",
   "bilder": ["/images/products/gitter-basis-1.webp", "/images/products/gitter-basis-2.webp"],
+  "modell3d": "/models/gitter-basis.pdm",
   "aktiv": true
 }
