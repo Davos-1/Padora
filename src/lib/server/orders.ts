@@ -77,7 +77,9 @@ export async function findOutOfStock(db: D1Database, items: Array<{ variantSku: 
 export function toOrderItems(lines: ResolvedLine[]): OrderItem[] {
   return lines.map((l) => ({
     variantSku: l.variantSku,
-    name: l.partner
+    name: l.gift
+      ? `${l.product.name}, ${l.variantLabel} (gratis dazu)`
+      : l.partner
       ? `${l.product.name} + ${l.partner.name} (Set)${l.variantLabel ? `, ${l.variantLabel}` : ""}`
       : `${l.product.name}${l.variantLabel ? `, ${l.variantLabel}` : ""}`,
     qty: l.line.qty,

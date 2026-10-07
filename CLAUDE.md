@@ -1,6 +1,6 @@
 # Padora Shop
 
-Onlineshop für Padel-Zubehör, Zielmarkt Schweiz. Next.js auf
+Onlineshop für 3D-gedruckte Padel-Halterungen und Overgrips, Zielmarkt Schweiz. Next.js auf
 Cloudflare Pages, Payrexx (TWINT/Karte/QR-Rechnung), Resend, D1.
 
 ## Sprache & Konventionen

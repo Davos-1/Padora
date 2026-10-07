@@ -43,6 +43,8 @@ export const checkoutSchema = z.object({
   shippingMethod: z.enum(SHIPPING_METHODS),
   paymentMethod: z.enum(PAYMENT_METHODS),
   lines: z.array(cartLineSchema).min(1, "Warenkorb ist leer").max(50),
+  /** Colour code of the free overgrip (validated against product data server-side). */
+  giftGrip: z.string().max(4).optional(),
   acceptTerms: z.literal(true, { error: "Bitte AGB akzeptieren" }),
 });
 export type CheckoutInput = z.infer<typeof checkoutSchema>;

@@ -1,7 +1,7 @@
 /** Static site-wide configuration (no secrets here). */
 export const site = {
   name: "Padora",
-  tagline: "Padel-Zubehör aus der Schweiz",
+  tagline: "Halterungen für Padel-Courts aus dem 3D-Drucker",
   domain: "padora.ch",
   url: "https://padora.ch",
   instagramUrl: "https://www.instagram.com/padora",

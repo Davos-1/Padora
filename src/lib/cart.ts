@@ -17,7 +17,16 @@ export type CartLine = {
   bundleWithSku?: string;
 };
 
-export type CartState = { lines: CartLine[] };
+export type CartState = {
+  lines: CartLine[];
+  /** Colour code of the free overgrip that comes with every order (default WHT). */
+  giftGrip?: string;
+};
+
+/** Every order containing a non-grip product includes one free overgrip. */
+export const GIFT_GRIP_SKU = "VP-GRP-1ER";
+export const GIFT_GRIP_DEFAULT = "WHT";
+export const GIFT_LINE_KEY = "gift";
 
 export const CART_STORAGE_KEY = "padora.cart.v1";
 export const MAX_QTY = 20;
@@ -39,18 +48,23 @@ export function addLine(state: CartState, line: CartLine): CartState {
     return setQty(state, key, existing.qty + line.qty);
   }
   const qty = clampQty(line.qty);
-  return qty === 0 ? state : { lines: [...state.lines, { ...line, qty }] };
+  return qty === 0 ? state : { ...state, lines: [...state.lines, { ...line, qty }] };
 }
 
 export function setQty(state: CartState, key: string, qty: number): CartState {
   const next = clampQty(qty);
   return {
+    ...state,
     lines: state.lines.flatMap((l) => (lineKey(l) === key ? (next === 0 ? [] : [{ ...l, qty: next }]) : [l])),
   };
 }
 
 export function removeLine(state: CartState, key: string): CartState {
-  return { lines: state.lines.filter((l) => lineKey(l) !== key) };
+  return { ...state, lines: state.lines.filter((l) => lineKey(l) !== key) };
+}
+
+export function setGiftGrip(state: CartState, code: string): CartState {
+  return { ...state, giftGrip: code };
 }
 
 export function itemCount(state: CartState): number {
@@ -67,6 +81,8 @@ export type ResolvedLine = {
   variantSku: string;
   unitPrice: number;
   lineTotal: number;
+  /** True for the free overgrip added automatically (not a stored cart line). */
+  gift?: boolean;
 };
 
 /**
@@ -100,7 +116,29 @@ export function resolveLines(state: CartState): ResolvedLine[] {
       lineTotal: roundChf(unitPrice * line.qty),
     });
   }
+
+  const giftLine = resolveGiftLine(out, state.giftGrip);
+  if (giftLine) out.push(giftLine);
   return out;
+}
+
+function resolveGiftLine(lines: ResolvedLine[], code: string | undefined): ResolvedLine | null {
+  if (!lines.some((l) => l.product.kategorie !== "grips")) return null;
+  const product = getProductBySku(GIFT_GRIP_SKU);
+  if (!product || !product.aktiv) return null;
+  const options = product.varianten.optionen;
+  const option = options.find((o) => o.code === code) ?? options.find((o) => o.code === GIFT_GRIP_DEFAULT) ?? options[0];
+  if (!option) return null;
+  return {
+    key: GIFT_LINE_KEY,
+    line: { sku: product.sku, variantCode: option.code, qty: 1 },
+    product,
+    variantLabel: option.label,
+    variantSku: variantSku(product, option.code),
+    unitPrice: 0,
+    lineTotal: 0,
+    gift: true,
+  };
 }
 
 export type CartTotals = {
@@ -142,7 +180,8 @@ export function parseCart(raw: string | null): CartState {
       const qty = clampQty(o.qty);
       if (qty > 0) lines.push({ sku: o.sku, variantCode, qty, ...(bundleWithSku ? { bundleWithSku } : {}) });
     }
-    return { lines };
+    const giftGrip = typeof (data as { giftGrip?: unknown }).giftGrip === "string" ? (data as { giftGrip: string }).giftGrip : undefined;
+    return { lines, ...(giftGrip ? { giftGrip } : {}) };
   } catch {
     return emptyCart;
   }

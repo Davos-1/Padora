@@ -25,8 +25,8 @@ export async function POST(req: Request) {
   }
   const input = parsed.data;
 
-  const lines = resolveLines({ lines: input.lines });
-  if (lines.length === 0 || lines.length !== input.lines.length) {
+  const lines = resolveLines({ lines: input.lines, giftGrip: input.giftGrip });
+  if (lines.filter((l) => !l.gift).length !== input.lines.length) {
     return NextResponse.json({ error: "Einzelne Artikel sind nicht mehr verfügbar. Bitte Warenkorb prüfen." }, { status: 409 });
   }
   const totals = cartTotals(lines);

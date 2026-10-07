@@ -1,18 +1,18 @@
 import { z } from "zod";
 
-export const KATEGORIEN = ["halterungen", "rackets", "taschen", "baelle", "grips", "schutz"] as const;
+export const KATEGORIEN = ["system", "kamera", "grips"] as const;
 export type Kategorie = (typeof KATEGORIEN)[number];
 
 export const kategorieMeta: Record<Kategorie, { label: string; beschreibung: string }> = {
-  halterungen: {
-    label: "Halterungen",
-    beschreibung: "Modulares Gittersystem aus dem 3D-Drucker: Basis plus Aufsätze für Kamera und Racket.",
+  system: {
+    label: "Gitter-System",
+    beschreibung: "Gitter-Basis mit Schwalbenschwanz und Aufsätze, die darauf passen.",
   },
-  rackets: { label: "Rackets", beschreibung: "Ausgewählte Padel-Rackets für Einsteiger bis Fortgeschrittene." },
-  taschen: { label: "Taschen", beschreibung: "Paletero und Rucksack für Racket, Bälle und Ausrüstung." },
-  baelle: { label: "Bälle", beschreibung: "Druckbälle für Training und Match." },
-  grips: { label: "Grips", beschreibung: "Overgrips für sicheren Halt, einzeln oder im Set." },
-  schutz: { label: "Schutz", beschreibung: "Stützen und Schutz für Ellbogen und Gelenke." },
+  kamera: {
+    label: "PadelCam",
+    beschreibung: "Kamerahalter für Padel-Courts: fürs Glas oder für die Gitter-Basis.",
+  },
+  grips: { label: "Overgrips", beschreibung: "Overgrips für sicheren Halt, einzeln oder im Set." },
 };
 
 const variantOptionSchema = z.object({

@@ -8,6 +8,7 @@ import {
   itemCount,
   removeLine,
   resolveLines,
+  setGiftGrip,
   setQty,
   type CartLine,
   type CartTotals,
@@ -21,6 +22,9 @@ type CartContextValue = {
   lines: ResolvedLine[];
   totals: CartTotals;
   count: number;
+  /** Selected colour code of the free overgrip. */
+  giftGrip: string | undefined;
+  setGiftGrip: (code: string) => void;
   add: (line: CartLine) => void;
   setQty: (key: string, qty: number) => void;
   remove: (key: string) => void;
@@ -39,6 +43,8 @@ export function CartProvider({ children }: { children: ReactNode }) {
       lines,
       totals: cartTotals(lines),
       count: itemCount(state),
+      giftGrip: state.giftGrip,
+      setGiftGrip: (code) => update((prev) => setGiftGrip(prev, code)),
       add: (line) => update((prev) => addLine(prev, line)),
       setQty: (key, qty) => update((prev) => setQty(prev, key, qty)),
       remove: (key) => update((prev) => removeLine(prev, key)),

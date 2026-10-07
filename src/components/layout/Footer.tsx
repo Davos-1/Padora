@@ -12,7 +12,7 @@ export function Footer() {
         <div className="md:col-span-2">
           <p className="wordmark text-base">PADORA</p>
           <p className="mt-3 max-w-sm text-sm text-neutral">
-            {site.tagline}. Eigenentwickelte Halterungen und ausgewählte Padel-Produkte.
+            {site.tagline}. Eigene 3D-gedruckte Halterungen für Padel-Courts.
             Versand nur innerhalb der Schweiz.
           </p>
           <a

@@ -1,6 +1,6 @@
 # Padora Shop
 
-Onlineshop für Padel-Zubehör (padora.ch). Next.js App Router auf
+Onlineshop für 3D-gedruckte Padel-Halterungen und Overgrips (padora.ch). Next.js App Router auf
 Cloudflare (OpenNext), Cloudflare D1, Payrexx, Resend.
 
 ## Entwicklung

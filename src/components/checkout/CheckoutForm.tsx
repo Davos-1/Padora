@@ -38,7 +38,7 @@ function Field({ label, name, error, children }: { label: string; name: string; 
 
 export function CheckoutForm() {
   const router = useRouter();
-  const { ready, lines, totals } = useCart();
+  const { ready, lines, totals, giftGrip } = useCart();
   const [errors, setErrors] = useState<FieldErrors>({});
   const [formError, setFormError] = useState<string | null>(null);
   const [submitting, setSubmitting] = useState(false);
@@ -74,7 +74,8 @@ export function CheckoutForm() {
       shippingMethod: fd.get("shippingMethod"),
       paymentMethod: fd.get("paymentMethod"),
       acceptTerms: fd.get("acceptTerms") === "on",
-      lines: lines.map((l) => l.line),
+      lines: lines.filter((l) => !l.gift).map((l) => l.line),
+      giftGrip: lines.find((l) => l.gift)?.line.variantCode ?? giftGrip,
     };
     const parsed = checkoutSchema.safeParse(candidate);
     if (!parsed.success) {
@@ -220,7 +221,7 @@ export function CheckoutForm() {
                 {l.partner && ` + ${l.partner.name}`}
                 {l.variantLabel && <span className="text-neutral"> · {l.variantLabel}</span>}
               </span>
-              <span className="shrink-0 tabular-nums">{formatChf(l.lineTotal)}</span>
+              <span className="shrink-0 tabular-nums">{l.gift ? "Gratis" : formatChf(l.lineTotal)}</span>
             </li>
           ))}
         </ul>

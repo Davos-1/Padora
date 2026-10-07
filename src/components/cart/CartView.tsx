@@ -9,7 +9,7 @@ import { formatChf } from "@/lib/format";
 import { shopConfig } from "@/lib/config";
 
 export function CartView() {
-  const { ready, lines, totals, setQty, remove } = useCart();
+  const { ready, lines, totals, setQty, remove, setGiftGrip } = useCart();
 
   if (!ready) {
     return <p className="py-12 text-center text-neutral">Warenkorb wird geladen …</p>;
@@ -29,7 +29,37 @@ export function CartView() {
   return (
     <div className="grid gap-8 lg:grid-cols-[1fr_20rem] lg:items-start">
       <ul className="divide-y divide-line border-y border-line">
-        {lines.map((l) => (
+        {lines.map((l) =>
+          l.gift ? (
+            <li key={l.key} className="flex gap-4 py-4">
+              <span className="relative block size-20 shrink-0 overflow-hidden rounded-(--radius-button) bg-line md:size-24">
+                <Image src={l.product.bilder[0]} alt="" fill sizes="96px" className="object-cover" />
+              </span>
+              <div className="flex min-w-0 flex-1 flex-col gap-2">
+                <div className="flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="font-medium text-ink">{l.product.name}</p>
+                    <p className="text-sm text-neutral">Gratis zu jeder Bestellung</p>
+                  </div>
+                  <p className="shrink-0 font-medium tabular-nums">Gratis</p>
+                </div>
+                <label className="flex items-center gap-3 text-sm text-neutral">
+                  Farbe
+                  <select
+                    value={l.line.variantCode ?? ""}
+                    onChange={(e) => setGiftGrip(e.target.value)}
+                    className="min-h-12 rounded-(--radius-button) border border-line bg-white px-3 text-ink"
+                  >
+                    {l.product.varianten.optionen.map((o) => (
+                      <option key={o.code} value={o.code}>
+                        {o.label}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              </div>
+            </li>
+          ) : (
           <li key={l.key} className="flex gap-4 py-4">
             <Link
               href={`/shop/${l.product.kategorie}/${l.product.slug}`}
@@ -67,7 +97,8 @@ export function CartView() {
               </div>
             </div>
           </li>
-        ))}
+          ),
+        )}
       </ul>
 
       <aside className="card p-5 lg:sticky lg:top-20">

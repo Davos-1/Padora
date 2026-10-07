@@ -8,7 +8,7 @@ import { KATEGORIEN } from "@/types/product";
 
 export const metadata: Metadata = {
   title: "Shop",
-  description: "Alle Padora-Produkte: Halterungen, Rackets, Taschen, Bälle, Grips und Schutz.",
+  description: "Alle Padora-Produkte: PadelCam Halter, Gitter-Basis, Racket-Halter und Overgrips.",
 };
 
 export default function ShopPage() {

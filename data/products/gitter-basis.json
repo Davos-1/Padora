@@ -2,26 +2,43 @@
   "sku": "VP-MNT-BASE",
   "slug": "gitter-basis",
   "name": "Gitter-Basis",
-  "kategorie": "halterungen",
-  "preisChf": 24.9,
-  "beschreibung": "Die Gitter-Basis ist das Fundament des modularen Padora-Halterungssystems. Sie wird an Zaun, Netzpfosten oder Geländer befestigt und nimmt anschliessend beliebige Padora-Aufsätze auf – von der PadelCam-Halterung bis zur Racket-Wandhalterung.\n\nGedruckt aus robustem PETG, ist die Basis witterungsbeständig und für den Dauereinsatz auf dem Platz ausgelegt. Das Gittermuster sorgt für ein geringes Gewicht bei hoher Stabilität.\n\nEinmal montiert, lassen sich Aufsätze werkzeuglos wechseln – ideal, um Kamera und Racket-Halter je nach Trainingssituation flexibel zu kombinieren.",
+  "kategorie": "system",
+  "preisChf": 19.9,
+  "beschreibung": "Die Gitter-Basis wird am Gitter des Padel-Courts eingehakt und ist die Grundlage des Padora-Systems. Sie besitzt eine Schwalbenschwanz-Verbindung, auf die sich Aufsätze einfach aufschieben lassen.\n\nHeute passen darauf der PadelCam Halter und der Racket-Halter. Weitere Aufsätze für dieselbe Basis sind in Planung, die Basis bleibt dabei dieselbe.\n\nGedruckt auf dem eigenen 3D-Drucker, in vier Farben erhältlich.",
   "details": {
-    "material": "PETG, 3D-gedruckt",
-    "masse": "14 x 14 x 2 cm",
-    "kompatibilitaet": "Alle Padora-Aufsätze"
+    "kompatibilitaet": "Schwalbenschwanz-Aufsätze von Padora"
   },
   "varianten": {
     "typ": "farbe",
     "optionen": [
-      { "code": "BLK", "label": "Schwarz", "hex": "#1A1D21" },
-      { "code": "WHT", "label": "Weiss", "hex": "#F2F2EE" },
-      { "code": "GRY", "label": "Grau", "hex": "#8A8F98" },
-      { "code": "PET", "label": "Petrol (Signature)", "hex": "#147A80" }
+      {
+        "code": "BLK",
+        "label": "Schwarz",
+        "hex": "#1A1D21"
+      },
+      {
+        "code": "WHT",
+        "label": "Weiss",
+        "hex": "#F2F2EE"
+      },
+      {
+        "code": "GRY",
+        "label": "Grau",
+        "hex": "#8A8F98"
+      },
+      {
+        "code": "PET",
+        "label": "Petrol",
+        "hex": "#147A80"
+      }
     ]
   },
   "quelle": "print",
-  "lieferzeitText": "Fertigung 2–4 Tage",
-  "bilder": ["/images/products/gitter-basis-1.webp", "/images/products/gitter-basis-2.webp"],
+  "lieferzeitText": "Lieferung in ca. 1 Woche",
+  "bilder": [
+    "/images/products/gitter-basis-1.webp",
+    "/images/products/gitter-basis-2.webp"
+  ],
   "modell3d": "/models/gitter-basis.pdm",
   "aktiv": true
 }

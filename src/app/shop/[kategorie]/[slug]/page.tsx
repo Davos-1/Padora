@@ -72,6 +72,7 @@ export default async function ProduktPage({ params }: PageProps<"/shop/[kategori
     content: (
       <p>
         {product.lieferzeitText}. Versand nur innerhalb der Schweiz, gratis ab CHF 60.–. Alle Preise inkl. MwSt.
+        {product.kategorie !== "grips" && " Ein Overgrip legen wir gratis dazu."}
       </p>
     ),
   });

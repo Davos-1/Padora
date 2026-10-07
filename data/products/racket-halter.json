@@ -1,0 +1,47 @@
+{
+  "sku": "VP-MNT-RCK",
+  "slug": "racket-halter",
+  "name": "Racket-Halter",
+  "kategorie": "system",
+  "preisChf": 24.9,
+  "beschreibung": "Der Racket-Halter wird mit seinem Schwalbenschwanz auf die Padora Gitter-Basis geschoben und hält dein Padelracket am Gitter des Courts.\n\nSo liegt das Racket zwischen den Punkten nicht auf dem Boden.\n\nHinweis: Der Halter benötigt die Padora Gitter-Basis als Untergrund. Wer sie gleichzeitig bestellt, spart im Set.",
+  "details": {
+    "kompatibilitaet": "Padora Gitter-Basis (Schwalbenschwanz)"
+  },
+  "varianten": {
+    "typ": "farbe",
+    "optionen": [
+      {
+        "code": "BLK",
+        "label": "Schwarz",
+        "hex": "#1A1D21"
+      },
+      {
+        "code": "WHT",
+        "label": "Weiss",
+        "hex": "#F2F2EE"
+      },
+      {
+        "code": "GRY",
+        "label": "Grau",
+        "hex": "#8A8F98"
+      },
+      {
+        "code": "PET",
+        "label": "Petrol",
+        "hex": "#147A80"
+      }
+    ]
+  },
+  "bundle": {
+    "mitSku": "VP-MNT-BASE",
+    "rabattProzent": 20
+  },
+  "quelle": "print",
+  "lieferzeitText": "Lieferung in ca. 1 Woche",
+  "bilder": [
+    "/images/products/racket-halter-1.webp",
+    "/images/products/racket-halter-2.webp"
+  ],
+  "aktiv": true
+}

@@ -1,0 +1,43 @@
+{
+  "sku": "VP-MNT-GLS",
+  "slug": "padelcam-glashalter",
+  "name": "PadelCam Halter für Glas",
+  "kategorie": "kamera",
+  "preisChf": 29.9,
+  "beschreibung": "Dieser PadelCam Halter wird mit einem Saugnapf an der Glaswand des Padel-Courts befestigt und hält deine Kamera.\n\nEr funktioniert ohne Gitter-Basis, überall dort, wo Glas statt Gitter steht.\n\nGedruckt auf dem eigenen 3D-Drucker, in vier Farben erhältlich.",
+  "details": {
+    "kompatibilitaet": "Glasflächen (Befestigung mit Saugnapf)"
+  },
+  "varianten": {
+    "typ": "farbe",
+    "optionen": [
+      {
+        "code": "BLK",
+        "label": "Schwarz",
+        "hex": "#1A1D21"
+      },
+      {
+        "code": "WHT",
+        "label": "Weiss",
+        "hex": "#F2F2EE"
+      },
+      {
+        "code": "GRY",
+        "label": "Grau",
+        "hex": "#8A8F98"
+      },
+      {
+        "code": "PET",
+        "label": "Petrol",
+        "hex": "#147A80"
+      }
+    ]
+  },
+  "quelle": "print",
+  "lieferzeitText": "Lieferung in ca. 1 Woche",
+  "bilder": [
+    "/images/products/padelcam-glashalter-1.webp",
+    "/images/products/padelcam-glashalter-2.webp"
+  ],
+  "aktiv": true
+}
