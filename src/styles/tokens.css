@@ -39,6 +39,11 @@
   --container-max: 72rem; /* 1152px */
   --container-pad: 1rem;
 
+  /* Home hero: placement of the 3D court on desktop (camera offset in % of the hero box, zoom factor) */
+  --court-x: 24%;
+  --court-y: 0%;
+  --court-scale: 0.7;
+
   /* Motion */
   --duration-fast: 120ms;
   --duration-base: 200ms;

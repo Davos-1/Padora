@@ -14,7 +14,7 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className="flex min-h-12 items-center px-3 text-sm font-medium text-ink transition-colors duration-(--duration-fast) hover:text-brand-dark"
+              className={`${"hideOnMobile" in item ? "hidden sm:flex" : "flex"} min-h-12 items-center px-3 text-sm font-medium text-ink transition-colors duration-(--duration-fast) hover:text-brand-dark`}
             >
               {item.label}
             </Link>

@@ -2,55 +2,41 @@ import Image from "next/image";
 import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { ButtonLink } from "@/components/ui/Button";
-import { ProductGrid } from "@/components/shop/ProductGrid";
-import { getActiveProducts, getProductBySlug, getProductsByKategorie } from "@/lib/products";
+import { CourtHero } from "@/components/home/CourtHero";
+import { ProductFilter } from "@/components/home/ProductFilter";
+import { getCourtZones } from "@/components/home/zones";
+import { formatChf } from "@/lib/format";
+import { bundlePrice } from "@/lib/pricing";
+import { getActiveProducts, getProductBySlug } from "@/lib/products";
 
 const usps = [
-  { title: "Gratis-Overgrip", text: "Zu jeder Bestellung mit einem Halter legen wir eines dazu." },
+  { title: "Gratis-Overgrip", text: "Zu jeder Bestellung mit einem Halter." },
   { title: "Lieferung in ca. 1 Woche", text: "Jedes Teil wird nach Bestellung gedruckt." },
   { title: "TWINT, Karte, Rechnung", text: "Versand in der Schweiz, gratis ab CHF 60.–." },
 ];
 
 const steps = [
-  { title: "Gitter-Basis einhaken", text: "Die Basis hängt am Gitter des Padel-Courts. Sie hat eine Schwalbenschwanz-Verbindung." },
-  { title: "Aufsatz aufschieben", text: "Der PadelCam Halter oder der Racket-Halter wird auf den Schwalbenschwanz geschoben." },
-  { title: "Wechseln, wie du willst", text: "Die Basis bleibt am Gitter hängen. Aufsätze lassen sich austauschen." },
+  { slug: "gitter-basis", title: "Gitter-Basis einhaken", text: "Die Basis hängt am Gitter und hat eine Schwalbenschwanz-Verbindung." },
+  { slug: "padelcam-schwalbenschwanz", title: "Aufsatz aufschieben", text: "PadelCam Halter oder Racket-Halter auf den Schwalbenschwanz schieben." },
+  { slug: "racket-halter", title: "Wechseln, wie du willst", text: "Die Basis bleibt am Gitter hängen. Aufsätze lassen sich austauschen." },
 ];
+
+const setSlugs = ["padelcam-schwalbenschwanz", "racket-halter"];
 
 export default function HomePage() {
   const products = getActiveProducts();
-  const system = getProductsByKategorie("system");
-  const kamera = getProductsByKategorie("kamera");
-  const grips = getProductsByKategorie("grips");
-  const hero = getProductBySlug("padelcam-schwalbenschwanz") ?? products[0];
+  const base = getProductBySlug("gitter-basis");
+  const sets = base
+    ? setSlugs.flatMap((slug) => {
+        const p = getProductBySlug(slug);
+        if (!p?.bundle || p.bundle.mitSku !== base.sku) return [];
+        return [{ p, rabatt: p.bundle.rabattProzent, regular: p.preisChf + base.preisChf, price: bundlePrice(p, base) }];
+      })
+    : [];
 
   return (
     <>
-      {/* Hero */}
-      <section className="border-b border-line bg-surface">
-        <Container className="grid items-center gap-8 py-12 md:grid-cols-2 md:py-20">
-          <div>
-            <p className="text-sm font-medium text-brand-dark">3D-gedruckt für Padel-Courts</p>
-            <h1 className="mt-3">Deine Kamera und dein Racket am Court. Am Glas oder am Gitter.</h1>
-            <p className="mt-4 max-w-prose text-neutral">
-              Padora entwickelt Halterungen und druckt sie selbst. Für das Glas gibt es den PadelCam
-              Halter mit Saugnapf. Am Gitter hängt die Basis mit Schwalbenschwanz, auf die der
-              PadelCam Halter oder der Racket-Halter passt.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <ButtonLink href="/shop/kamera">PadelCam ansehen</ButtonLink>
-              <ButtonLink href="/shop/system" variant="secondary">
-                Gitter-System
-              </ButtonLink>
-            </div>
-          </div>
-          {hero && (
-            <div className="card relative aspect-square overflow-hidden md:aspect-4/3">
-              <Image src={hero.bilder[0]} alt={hero.name} fill priority sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" />
-            </div>
-          )}
-        </Container>
-      </section>
+      <CourtHero zones={getCourtZones()} />
 
       {/* USP bar */}
       <section aria-label="Vorteile" className="border-b border-line">
@@ -67,71 +53,93 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* PadelCam */}
-      <section>
-        <Container className="py-12">
-          <div className="flex items-end justify-between gap-4">
-            <h2>PadelCam Halter</h2>
-            <Link href="/shop/kamera" className="text-sm font-medium text-brand-dark hover:underline">
-              Alle anzeigen
-            </Link>
-          </div>
-          <p className="mt-2 max-w-prose text-neutral">
-            Zwei Varianten: mit Saugnapf fürs Glas oder mit Schwalbenschwanz für die Gitter-Basis.
-          </p>
-          <div className="mt-6">
-            <ProductGrid products={kamera} />
-          </div>
-        </Container>
-      </section>
-
       {/* System */}
-      <section className="border-y border-line bg-surface">
-        <Container className="py-12">
-          <h2>Das Schwalbenschwanz-System</h2>
-          <p className="mt-2 max-w-prose text-neutral">
-            Eine Basis am Gitter, darauf Aufsätze nach Bedarf. Mit dem PadelCam Halter oder dem
-            Racket-Halter im Set 20% günstiger.
-          </p>
-          <ol className="mt-6 grid gap-3 md:grid-cols-3">
-            {steps.map((s, i) => (
-              <li key={s.title} className="card p-5">
-                <p className="font-heading text-sm text-brand-dark">Schritt {i + 1}</p>
-                <h3 className="mt-1 text-lg">{s.title}</h3>
-                <p className="mt-2 text-sm text-neutral">{s.text}</p>
-              </li>
-            ))}
-          </ol>
-          <div className="mt-8">
-            <ProductGrid products={system} />
-          </div>
-          <div className="card mt-8 p-5">
-            <h3 className="text-lg">Weitere Aufsätze folgen</h3>
-            <p className="mt-2 max-w-prose text-sm text-neutral">
-              Der Schwalbenschwanz ist als System gedacht. Auf dieselbe Basis sollen später weitere
-              Aufsätze passen. Neue Teile erscheinen hier, sobald sie fertig getestet sind. Auch
-              Mischfarben sind in Planung.
+      <section id="system" className="scroll-mt-16">
+        <Container className="flex flex-col gap-8 py-12 md:py-20">
+          <div className="flex flex-wrap items-end justify-between gap-5">
+            <h2 className="max-w-xl">Eine Basis am Gitter. Aufsätze nach Bedarf.</h2>
+            <p className="max-w-md text-neutral">
+              Mit dem PadelCam Halter oder dem Racket-Halter im Set 20% günstiger. Weitere Aufsätze
+              für dieselbe Basis sind in Planung.
             </p>
           </div>
+
+          <ol className="grid gap-3 md:grid-cols-3">
+            {steps.map((s, i) => {
+              const img = getProductBySlug(s.slug)?.bilder[0];
+              return (
+                <li key={s.title} className="card flex flex-col gap-3 p-3">
+                  {img && (
+                    <div className="relative aspect-4/3 overflow-hidden rounded-(--radius-button) bg-line">
+                      <Image src={img} alt="" fill sizes="(min-width: 768px) 33vw, 100vw" className="object-cover" />
+                    </div>
+                  )}
+                  <div className="flex gap-3 px-1 pb-2">
+                    <span className="font-heading text-sm text-brand-dark">{String(i + 1).padStart(2, "0")}</span>
+                    <div>
+                      <h3 className="text-lg">{s.title}</h3>
+                      <p className="mt-1 text-sm text-neutral">{s.text}</p>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+
+          {base && sets.length > 0 && (
+            <div className="grid gap-3 md:grid-cols-2">
+              {sets.map(({ p, rabatt, regular, price }, i) => {
+                const dark = i === 0;
+                return (
+                  <div
+                    key={p.sku}
+                    className={
+                      dark
+                        ? "flex flex-wrap items-end justify-between gap-4 rounded-(--radius-card) bg-ink p-6 text-paper"
+                        : "card flex flex-wrap items-end justify-between gap-4 p-6"
+                    }
+                  >
+                    <div className="flex flex-col gap-1">
+                      <span className={dark ? "text-xs font-medium tracking-wide text-line uppercase" : "text-xs font-medium tracking-wide text-brand-dark uppercase"}>
+                        Set · −{rabatt}%
+                      </span>
+                      <b className="font-heading text-xl font-medium">
+                        {base.name} + {p.name}
+                      </b>
+                      <span className={dark ? "text-sm text-neutral line-through" : "text-sm text-neutral line-through"}>
+                        {formatChf(regular)}
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <span className={dark ? "font-heading text-2xl font-medium" : "font-heading text-2xl font-medium text-brand-dark"}>
+                        {formatChf(price)}
+                      </span>
+                      {dark ? (
+                        <Link
+                          href={`/shop/${p.kategorie}/${p.slug}`}
+                          className="inline-flex min-h-(--touch-target) items-center rounded-(--radius-button) bg-paper px-5 font-medium text-ink"
+                        >
+                          Set wählen
+                        </Link>
+                      ) : (
+                        <ButtonLink href={`/shop/${p.kategorie}/${p.slug}`} variant="secondary">
+                          Set wählen
+                        </ButtonLink>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </Container>
       </section>
 
-      {/* Overgrips */}
-      <section>
-        <Container className="py-12">
-          <div className="flex items-end justify-between gap-4">
-            <h2>Overgrips</h2>
-            <Link href="/shop/grips" className="text-sm font-medium text-brand-dark hover:underline">
-              Alle anzeigen
-            </Link>
-          </div>
-          <p className="mt-2 max-w-prose text-neutral">
-            Mit jeder Bestellung eines Halters bekommst du ein Overgrip gratis. Du kannst sie auch
-            einzeln oder im 3er-Set kaufen.
-          </p>
-          <div className="mt-6">
-            <ProductGrid products={grips} />
-          </div>
+      {/* Alle Produkte */}
+      <section id="produkte" className="scroll-mt-16 border-t border-line bg-surface">
+        <Container className="flex flex-col gap-6 py-12 md:py-20">
+          <h2>Alle Produkte</h2>
+          <ProductFilter products={products} />
         </Container>
       </section>
     </>

@@ -10,6 +10,8 @@ export const site = {
 
 export const navigation = {
   main: [
+    { href: "/#court", label: "Court", hideOnMobile: true },
+    { href: "/#system", label: "System", hideOnMobile: true },
     { href: "/shop", label: "Shop" },
     { href: "/ueber-uns", label: "Über uns" },
   ],
